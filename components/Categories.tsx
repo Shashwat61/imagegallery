@@ -8,7 +8,7 @@ interface CategoriesProps{
 }
 function Categories({ setActiveCategory, categories}: CategoriesProps) {
     const [selected, setSelected] = useState(0);
-
+    
     useEffect(()=>{
         setActiveCategory(categories[selected]);
     },[selected])
