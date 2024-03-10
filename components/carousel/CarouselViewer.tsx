@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import Carousel from "./Carousel";
 
@@ -263,7 +263,6 @@ function CarouselViewer({ activeCategory }: CarouselProps) {
   ]);
   // api call
   // get data
-  
 
   return (
     <div>
