@@ -1,6 +1,6 @@
 "use client";
+
 import React, {
-  RefObject,
   SyntheticEvent,
   useEffect,
   useRef,
@@ -11,7 +11,7 @@ import CarouselButton from "./CarouselButton";
 import CarouselImageViewer from "./CarouselImageViewer";
 // import { getNumberOfImagesByScreenSize } from "@/utils/utils";
 function getNumberOfImagesByScreenSize() {
-  if (typeof window !== "undefined") {
+  if (typeof window !== undefined) {
     if (window.innerWidth < 468) {
       return 2;
     }
@@ -27,7 +27,7 @@ function getNumberOfImagesByScreenSize() {
 interface CarouselProps {
   data: PhotosData[] | null;
 }
-type Dataset = Record<string, string>;
+
 function Carousel({ data }: CarouselProps) {
   const [showNumberOfImages, setShowNumberOfImages] = useState<
     number | undefined
@@ -37,7 +37,6 @@ function Carousel({ data }: CarouselProps) {
   const [startingIndex, setStartingIndex] = useState<number>(0);
   const [endIndex, setEndIndex] = useState<number>(showNumberOfImages!);
   const hideRightButton = endIndex === data?.length;
-  console.log(startingIndex, endIndex, data?.length);
   const carouselRef = useRef<HTMLInputElement | null>(null);
   const referencePoint = useRef<HTMLInputElement | null>(null);
   const startingIndexRef = useRef<HTMLInputElement | null>(null);
@@ -87,6 +86,7 @@ function Carousel({ data }: CarouselProps) {
   }, []);
 
   useEffect(() => {
+    if (!data || !showNumberOfImages) return
     if (direction == "left") {
       startingIndexRef.current?.scrollIntoView({
         behavior: "smooth",
@@ -96,12 +96,6 @@ function Carousel({ data }: CarouselProps) {
         behavior: "smooth",
       });
     }
-    console.log(
-      "scrollllinggggggg",
-      carouselRef.current,
-      referencePoint.current?.offsetLeft,
-      referencePoint.current
-    );
   }, [startingIndex, endIndex]);
   console.log(
     showNumberOfImages,
