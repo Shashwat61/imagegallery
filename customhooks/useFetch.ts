@@ -30,7 +30,8 @@ const useFetch = (config: ConfigParams) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(config.url, {...options, ...config.options});
+        // by default fetch stores the response in cache 
+        const response = await fetch(config.url, {...options, ...config.options, cache: "no-store"});
 
         if (!response.ok) {
           throw new Error(`API request failed with status ${response.status}`);

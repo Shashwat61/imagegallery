@@ -27,7 +27,7 @@ function CarouselImageViewer({
             {i == startingIndex ? (
               <div
                 className="w-[300px] bg-red-600"
-                key={i}
+                key={item.id}
                 ref={startingRef}
               ></div>
             ) : null}

@@ -3,7 +3,7 @@ import Navbar from "@/components/layout/Navbar";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="h-[90vh] overflow-hidden">
     <Navbar/>
     <main>
       <MainScreen/>    

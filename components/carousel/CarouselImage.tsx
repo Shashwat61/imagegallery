@@ -25,11 +25,7 @@ function CarouselImage({
     endIndex === index - 1
   );
   return (
-    <div>
-      <div>
-        <span>{data.id}</span>
-        <span>{index}</span>
-      </div>
+    <div className="mt-4">
 
       <div
         className={areActive ? "blur-0" : "blur-sm"}

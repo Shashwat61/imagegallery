@@ -11,7 +11,7 @@ function MainScreen() {
   );
 
   return (
-    <div className="m-2 border">
+    <div className="m-2 h-full">
       <Categories
         setActiveCategory={setActiveCategory}
         categories={categories}

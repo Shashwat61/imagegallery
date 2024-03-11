@@ -18,3 +18,8 @@ export function getNumberOfImagesByScreenSize(){
     }
     else return 6
 }
+
+export async function fetchPhotosByCategory(activeCategory: string){
+    const response = await fetch(`https://api.unsplash.com/search/photos?query=${activeCategory}&client_id=${process.env.NEXT_PUBLIC_CLIENT_SECRET}`, {cache: "no-store"})
+    return (await response.json()) as any[]
+}

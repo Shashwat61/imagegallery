@@ -75,13 +75,13 @@ function Carousel({ data }: CarouselProps) {
         break;
     }
   }
-
+  function handleShowNumberOfImages(){
+    setShowNumberOfImages(getNumberOfImagesByScreenSize());
+  }
   useEffect(() => {
-    window.addEventListener("resize", () => {
-      setShowNumberOfImages(getNumberOfImagesByScreenSize());
-    });
+    window.addEventListener("resize",  handleShowNumberOfImages);
     return () => {
-      window.removeEventListener("resize", () => {});
+      window.removeEventListener("resize", handleShowNumberOfImages);
     };
   }, []);
 
