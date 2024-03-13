@@ -11,7 +11,9 @@ import CarouselButton from "./CarouselButton";
 import CarouselImageViewer from "./CarouselImageViewer";
 // import { getNumberOfImagesByScreenSize } from "@/utils/utils";
 function getNumberOfImagesByScreenSize() {
-  if (typeof window !== undefined) {
+  if (typeof window == 'undefined') {
+    return;
+    }
     if (window.innerWidth < 468) {
       return 2;
     }
@@ -22,7 +24,6 @@ function getNumberOfImagesByScreenSize() {
     } else if (window.innerWidth < 1024) {
       return 5;
     } else return 5;
-  }
 }
 interface CarouselProps {
   data: PhotosData[] | null;
